@@ -1,7 +1,7 @@
 const { exec } = require('child_process');
 const path = require('path');
 
-const encodeVideo = async (fileName) => {
+const encodeVideo = async (fileName, onSuccess, onError) => {
   const rootInputPath = path.join(__dirname, '../../files/downloaded'); 
   const rootOutputPath = path.join(__dirname, '../../files/output'); 
 
@@ -13,10 +13,10 @@ const encodeVideo = async (fileName) => {
 
   exec(ffmpegCommand, (error, stdout, stderr) => {
     if (error) {
-      console.error('Error removing sound and metadata:', error.message);
+      onError('Error removing sound and metadata:', error.message);
       return;
     }
-    console.log('Sound and metadata removed successfully.');
+    onSuccess('Sound and metadata removed successfully.');
   });
 }
 

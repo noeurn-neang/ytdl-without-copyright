@@ -7,15 +7,25 @@ const getYoutubeVideoInfo = async (req, res) => {
   try {
     const { videoUrl } = req.query;
     const downloadResult = await downloadYT(videoUrl);
-    await encodeVideo(downloadResult);
-    res.send({
-      error: false,
-      data: {
-        fileName: downloadResult,
+    encodeVideo(
+      downloadResult,
+      (msg) => {
+        res.send({
+          error: false,
+          data: {
+            fileName: downloadResult,
+          }
+        })
+      },
+      (err) => {
+        res.status(413).send({
+          error: true,
+          msg: 'Error while get video info:' + e.message,
+        })
       }
-    })
+    );
   } catch (e) {
-    res.send({
+    res.status(413).send({
       error: true,
       msg: 'Error while get video info:' + e.message,
     })
