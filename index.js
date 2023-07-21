@@ -1,14 +1,32 @@
-const { encodeVideo } = require("./src/utils/video-converter");
-const { downloadYT } = require("./src/utils/video-dowloader");
+const app = require('./src/app');
+const { SERVER_PORT } = require('./src/configs');
 
-const start = async () => {
-  try {
-    const downloadResult = await downloadYT('https://www.youtube.com/watch?v=eDA8dokNgqQ&t=36s');
-    await encodeVideo(downloadResult);
-    console.log('downloadResult', downloadResult)
-  } catch (e) {
-    console.error('Error While Download', e);
+const server = app.listen(SERVER_PORT, () => {
+  console.info(`Listening to port ${SERVER_PORT}`);
+});
+
+const exitHandler = () => {
+  if (server) {
+    server.close(() => {
+      console.info('Server closed');
+      process.exit(1);
+    });
+  } else {
+    process.exit(1);
   }
-}
+};
 
-start();
+const unexpectedErrorHandler = (error) => {
+  console.error(error);
+  exitHandler();
+};
+
+process.on('uncaughtException', unexpectedErrorHandler);
+process.on('unhandledRejection', unexpectedErrorHandler);
+
+process.on('SIGTERM', () => {
+  console.info('SIGTERM received');
+  if (server) {
+    server.close();
+  }
+});

@@ -8,9 +8,8 @@ const encodeVideo = async (fileName) => {
   const inputFilePath = path.join(rootInputPath, fileName);
   const outputFilePath = path.join(rootOutputPath, fileName.split('.')[0] + '.mp4');
 
-  // const ffmpegCommand = `ffmpeg -i "${inputFilePath}" -c:v libx265 -crf 28 -preset medium -c:a copy "${outputFilePath}"`;
-  // const ffmpegCommand = `ffmpeg -i "${inputFilePath}" -c:v libx265 -crf 28 -preset medium -an -map_metadata -1 -metadata handler_name="My VID" -metadata vendor_id="[0][1][0][1]" -filter_complex "[0:v]scale=1920:-1[v]" -map "[v]" "${outputFilePath}"`;
-  const ffmpegCommand = `ffmpeg -i "${inputFilePath}" -c:v copy -an -map_metadata -1 "${outputFilePath}"`;
+  // const ffmpegCommand = `ffmpeg -i "${inputFilePath}" -c:v copy -an -map_metadata -1 -c:v copy -an -metadata:s handler_name="Duyin Inc" -metadata:s vendor_id="[0][1][0][1]" "${outputFilePath}"`;
+  const ffmpegCommand = `ffmpeg -i "${inputFilePath}" -an -map_metadata -1 -metadata:s handler_name="Duyin Inc" -metadata:s vendor_id="[0][1][0][1]" -filter:v "setpts=0.9091*PTS" "${outputFilePath}"`;
 
   exec(ffmpegCommand, (error, stdout, stderr) => {
     if (error) {
