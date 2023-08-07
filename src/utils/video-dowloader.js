@@ -58,4 +58,4 @@ const downloadYT = async (videoUrl) => {
   });
 }
 
-module.exports = { downloadYT };
+module.exports = { downloadYT, removeFile };

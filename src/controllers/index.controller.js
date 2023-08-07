@@ -1,5 +1,5 @@
 const { encodeVideo } = require("../utils/video-converter");
-const { downloadYT } = require("../utils/video-dowloader");
+const { downloadYT, removeFile } = require("../utils/video-dowloader");
 const path = require('path');
 const fs = require('fs');
 
@@ -10,6 +10,12 @@ const getYoutubeVideoInfo = async (req, res) => {
     encodeVideo(
       downloadResult,
       (msg) => {
+
+        // Remove downloaded file after done encoded
+        const rootPath = path.join(__dirname, '../../files/downloaded'); 
+        const outputFilePath = path.join(rootPath, downloadResult);
+        removeFile(outputFilePath);
+
         res.send({
           error: false,
           data: {
@@ -64,8 +70,30 @@ const downloadFile = (req, res) => {
   }
 }
 
+const removeOutputFile = (req, res) => {
+  try {
+    const { fileName } = req.query;
+
+    // Remove downloaded file after done encoded
+    const rootPath = path.join(__dirname, '../../files/output'); 
+    const outputFilePath = path.join(rootPath, fileName);
+    removeFile(outputFilePath);
+
+    res.send({
+      error: false,
+      msg: 'File has been removed.'
+    })
+  } catch (e) {
+    res.status(400).send({
+      error: true,
+      msg: e.message
+    })
+  }
+}
+
 
 module.exports = {
   getYoutubeVideoInfo,
-  downloadFile
+  downloadFile,
+  removeOutputFile
 }
