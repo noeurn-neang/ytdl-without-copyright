@@ -5,31 +5,49 @@ const fs = require('fs');
 
 const getYoutubeVideoInfo = async (req, res) => {
   try {
-    const { videoUrl } = req.query;
+    const { videoUrl, removeMetadata } = req.query;
     const downloadResult = await downloadYT(videoUrl);
-    encodeVideo(
-      downloadResult,
-      (msg) => {
+    if(removeMetadata == 1) {
+      encodeVideo(
+        downloadResult,
+        (msg) => {
 
-        // Remove downloaded file after done encoded
-        const rootPath = path.join(__dirname, '../../files/downloaded'); 
-        const outputFilePath = path.join(rootPath, downloadResult);
-        removeFile(outputFilePath);
+          // Remove downloaded file after done encoded
+          const rootPath = path.join(__dirname, '../../files/downloaded'); 
+          const outputFilePath = path.join(rootPath, downloadResult);
+          removeFile(outputFilePath);
 
-        res.send({
-          error: false,
-          data: {
-            fileName: downloadResult,
-          }
-        })
-      },
-      (err) => {
-        res.status(413).send({
-          error: true,
-          msg: 'Error while get video info:' + err.message,
-        })
-      }
-    );
+          res.send({
+            error: false,
+            data: {
+              fileName: downloadResult,
+            }
+          })
+        },
+        (err) => {
+          res.status(413).send({
+            error: true,
+            msg: 'Error while get video info:' + err.message,
+          })
+        }
+      );
+    } else {
+      const rootDownloadPath = path.join(__dirname, '../../files/downloaded'); 
+      const oldPath = path.join(rootDownloadPath, downloadResult);
+
+      const rootOutputPath = path.join(__dirname, '../../files/output'); 
+      const newPath = path.join(rootOutputPath, downloadResult);
+
+      fs.rename(oldPath, newPath, function (err) {
+        if (err) throw err
+      })      
+      res.send({
+        error: false,
+        data: {
+          fileName: downloadResult,
+        }
+      })
+    }
   } catch (err) {
     res.status(413).send({
       error: true,
