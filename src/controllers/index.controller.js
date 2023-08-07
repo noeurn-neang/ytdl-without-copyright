@@ -20,14 +20,14 @@ const getYoutubeVideoInfo = async (req, res) => {
       (err) => {
         res.status(413).send({
           error: true,
-          msg: 'Error while get video info:' + e.message,
+          msg: 'Error while get video info:' + err.message,
         })
       }
     );
-  } catch (e) {
+  } catch (err) {
     res.status(413).send({
       error: true,
-      msg: 'Error while get video info:' + e.message,
+      msg: 'Error while get video info:' + err.message,
     })
   }
 };
