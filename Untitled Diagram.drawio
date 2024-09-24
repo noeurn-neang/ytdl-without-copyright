@@ -1,9 +1,60 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15" version="24.7.16">
   <diagram name="Page-1" id="Ui6l41GkQkLtNj6r6hDC">
-    <mxGraphModel>
+    <mxGraphModel dx="795" dy="459" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="u6Zf7RJnpryzVvDDnLQG-1" target="u6Zf7RJnpryzVvDDnLQG-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-1" value="User click next" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="365" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="u6Zf7RJnpryzVvDDnLQG-3" target="u6Zf7RJnpryzVvDDnLQG-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-3" value="Save to wp_meta_point&lt;div&gt;(state = payment_pending)&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="365" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="u6Zf7RJnpryzVvDDnLQG-5" target="u6Zf7RJnpryzVvDDnLQG-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-5" value="Show TOSS payment page" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="365" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-10" value="True" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="u6Zf7RJnpryzVvDDnLQG-7" target="u6Zf7RJnpryzVvDDnLQG-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="u6Zf7RJnpryzVvDDnLQG-7" target="u6Zf7RJnpryzVvDDnLQG-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-7" value="Is Success" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="385" y="500" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="u6Zf7RJnpryzVvDDnLQG-9" target="u6Zf7RJnpryzVvDDnLQG-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-9" value="Show success page" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="525" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-11" value="Show error page" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="205" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="u6Zf7RJnpryzVvDDnLQG-13" target="u6Zf7RJnpryzVvDDnLQG-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-13" value="Confirm payment status" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="725" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="u6Zf7RJnpryzVvDDnLQG-15" target="u6Zf7RJnpryzVvDDnLQG-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-15" value="Is Success" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="745" y="360" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="u6Zf7RJnpryzVvDDnLQG-17" value="Update in&amp;nbsp;&lt;div&gt;wp_meta_point&lt;/div&gt;&lt;div&gt;(state = approval)&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="565" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
